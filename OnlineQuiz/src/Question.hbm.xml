@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Question" table="EXTJSQUESTION">
+        <id name="quesNo" column="QUESNO" type="integer" length="10">
+            <generator class="assigned"/>
+        </id>
+        <property name="ques" column="QUES" length="500"/>
+        <property name="option1" column="OPTION1" length="200"/>
+        <property name="option2" column="OPTION2" length="200"/>
+        <property name="option3" column="OPTION3" length="200"/>
+        <property name="option4" column="OPTION4" length="200"/>
+        <property name="correctOption" column="CORRECTOPTION" length="5"/>
+    </class>
+</hibernate-mapping>
