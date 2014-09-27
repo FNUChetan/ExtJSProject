@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Employee" table="EXTJSEMPTABLE">
+        <id name="id" column="ID" type="integer" length="10">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="NAME" length="20"/>
+        <property name="age" column="AGE" type="integer"/>
+        <property name="gender" column="GENDER" length="10"/>
+        <property name="company" column="COMPANY" length="30"/>
+        <property name="email" column="EMAIL" length="30"/>
+        <property name="phone" column="PHONE" length="20"/>
+        <property name="address" column="ADDRESS" length="40"/>
+        <property name="guid" column="GUID" length="40"/>
+        <property name="balance" column="BALANCE" type="float"/>
+        <property name="about" column="ABOUT" length="40"/>
+        <property name="registered" column="REGISTERED" type="date"/>
+    </class>
+</hibernate-mapping>
