@@ -53,15 +53,46 @@ Ext.define('App.view.QuestionDisplay', {
     initComponent: function() {
         me = this;
         var questionStores = Ext.data.StoreManager.lookup('Questions');
-        var panelItems = [];
-        for (var i = 0; i < questionStores.count(); i++) {
-            panelItems[i] = {
-                id: 'question' + questionStores.data.items[i].quesNo,
-                title: 'Question ' + (i + 1),
-                html: questionStores.data.items[i].ques + '<br><br>' + questionStores.data.items[i].option1 + '<br><br>' + questionStores.data.items[i].option2 + '<br><br>' + questionStores.data.items[i].option3 + '<br><br>' + questionStores.data.items[i].option4
-            };
-        }
-        this.items = panelItems;
+        questionStores.load({
+        	callback: function(){
+        		Ext.Msg.alert('Store Count', questionStores.count());
+                var panelItems = [];
+                var i=0;
+                /*for (var i = 0; i < questionStores.count(); i++) {
+                    
+                }*/
+                /*questionStores.each( function(record){
+                	panelItems[++i] = {
+                            id: 'question' + record.get("quesNo"),
+                            title: 'Question ' + (record.get("quesNo") + 1),
+                            html: record.get("ques") + '<br><br>' + record.get("option1") + '<br><br>' + record.get("option2") + '<br><br>' + record.get("option3") + '<br><br>' + record.get("option4")
+                        };
+                });*/
+                
+                questionStores.each(function(record){
+                	console.log('Question ' + record.get('quesNo'));
+                	console.log(record.get('ques'));
+                	console.log(record.get('option1'));
+                	console.log(record.get('option2'));
+                	console.log(record.get('option3'));
+                	console.log(record.get('option4'));
+                	panelItems[i++] = {
+                            id: 'question' + record.get('quesNo'),
+                            title: 'Question ' + record.get('quesNo'),
+                            html: record.get('ques') + record.get('option1') + record.get('option2') + record.get('option3') + record.get('option4')
+                        };
+                	
+                	//console.log('panelItems ' + panelItems);
+                });
+                console.log("me",me);
+                console.log("me.items", me.items);
+                console.log("this", this);
+                me.items = panelItems;
+                console.log(me.items[0]);
+        	},
+        	scope: me
+        });
+        
         this.callParent(arguments);
     }
 });
