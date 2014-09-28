@@ -1,0 +1,14 @@
+#header {
+    height: 48px;
+    margin:0;
+}
+#header #logo {
+    background-image: url('images/e.png');
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 159px;
+    margin: 10px 0 0 0;
+}
+#footer {
+	padding: 15px 0 15px 0;
+}
